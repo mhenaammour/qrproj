@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>Generate QR Code</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="data">Enter data for QR code:</label>
+      <input type="text" class="form-control" id="data" name="data" placeholder="Enter data">
+    </div>
+    <button type="submit" class="btn btn-primary">Generate QR Code</button>
+  </form>
+  {% if data %}
+    <h2>Generated QR Code:</h2>
+    <a href="{% static 'qrcode.png' %}" download="qrcode.png">
+      <img src="{% static 'qrcode.png' %}" alt="Generated QR Code" class="img-fluid">
+    </a>
+  {% endif %}
+{% endblock %}

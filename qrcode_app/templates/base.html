@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <title>{% block title %}QR Code Generator & Scanner{% endblock %}</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom styles for the footer */
+    .footer {
+      background-color: #f8f9fa;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    /* Sticky footer styles */
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    .wrapper {
+      min-height: 100%;
+      position: relative;
+    }
+
+    .content {
+      padding-bottom: 100px; /* Height of the footer */
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/generate">QR Code Generator & Scanner</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'generate_qr' %}">Generate QR</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'scan_qr' %}">Scan QR</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-5 content">
+    {% block content %}
+    {% endblock %}
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Contactez-nous</h4>
+        <p>Email : m_ammour@estin.dz</p>
+        <p>Développeur  : M'hena Ammour</p>
+    
+       
+      </div>
+      <div class="col-md-6">
+        <h4>Soutenez-nous</h4>
+        <p>Votre don peut nous aider à continuer à fournir des services gratuits.</p>
+        <p><a href="https://www.paypal.com/donate/?hosted_button_id=2QF66QKZJNKCN" class="btn btn-primary">Faire un don</a></p>
+    </div>
+    </div>
+    <hr>
+    <p>&copy; {% now "Y" %} QR Code Generator. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- ... (other code in your base.html) ... -->
+<script src="https://cdn.rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+<!-- ... (other code in your base.html) ... -->
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Page Not Found{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="jumbotron text-center">
+      <h1 class="display-4">Oops, page not found!</h1>
+      <p class="lead">The page you're looking for doesn't exist.</p>
+      <hr class="my-4">
+      <p>It seems you've wandered into the unknown.</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="{% url 'home' %}" role="button">Return to Home</a>
+      </p>
+    </div>
+  </div>
+{% endblock %}
